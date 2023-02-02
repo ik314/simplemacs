@@ -70,3 +70,18 @@
 
 ;;; init.el ends here
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("680f62b751481cc5b5b44aeab824e5683cf13792c006aeba1c25ce2d89826426" "45830f6a1aacf065bee5853f619522773ba635a3f0d52938dbcd967d65496605" default))
+ '(package-selected-packages
+   '(doom-themes anaconda-mode yaml-mode cmake-font-lock flycheck yasnippet company helm use-package inkpot-theme evil)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

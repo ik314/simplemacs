@@ -30,9 +30,16 @@ the plugin in the configuration for its base package. For example,
 =company-irony= is configured in [[company.org]].
 
 #+BEGIN_SRC emacs-lisp
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
-  (eval-when-compile (require 'use-package))
+    (unless (package-installed-p 'use-package)
+      (package-refresh-contents)
+      (package-install 'use-package))
+    (eval-when-compile (require 'use-package))
+
+  #+END_SRC
+#+BEGIN_SRC emacs-lisp
+	(use-package evil :ensure t
+	  :init
+	  (evil-mode 1))
+	(use-package inkpot-theme :ensure t)
 #+END_SRC
 

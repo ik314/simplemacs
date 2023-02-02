@@ -36,8 +36,12 @@ I like =base16-theme='s 3024 because of it's pure black background
 that looks stunning on my OLED screen, and also saves battery.
 
 #+BEGIN_SRC emacs-lisp
-  (load-theme 'base16-3024 t)
+  (use-package doom-themes :ensure t)
+  (load-theme 'doom-ayu-mirage t)
 #+END_SRC
+
+#+RESULTS:
+: t
 
 I like to have the fringes of my emacs buffers to be really thin, this
 can be achieved with:
@@ -74,9 +78,9 @@ relative to this, but ultimately it's your taste.
 
 #+BEGIN_SRC emacs-lisp
   (require 'paren)
-  (set-face-background 'show-paren-match "#b4b4b4")
-  (set-face-foreground 'show-paren-match "#000000")
-  (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+  ;;(set-face-background 'show-paren-match "#b4b4b4")
+  ;;(set-face-foreground 'show-paren-match "#000000")
+  ;;(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 #+END_SRC
 
 * Line numbering
@@ -102,7 +106,7 @@ Finally, I set the line numbering background colour to be the same as
 the body's, in this case it's black. 
 
 #+BEGIN_SRC emacs-lisp
-  (set-face-background 'linum "#000")
+  ;;(set-face-background 'linum "#000")
 #+END_SRC
 
 * Mode line
@@ -131,6 +135,8 @@ this.
         delete-old-versions nil  ;; 
         )
 #+END_SRC
+
+#+RESULTS:
 
 I don't like my folders cluttered with =*~= files, but I do like
 having backups with the file. My solution is to save the files in
