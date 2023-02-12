@@ -31,23 +31,36 @@ I don't need to be welcomed to emacs, just give me somewhere to type.
 #+END_SRC
 
 * Colour theme
+#+BEGIN_SRC emacs-lisp
+  ; installing theme packages because I'm never satisfied.
+  (use-package doom-themes :ensure t)
+  (use-package base16-theme :ensure t)
+  (use-package github-theme :ensure t)
+  (use-package kaolin-themes :ensure t)
+#+END_SRC
 
-I like =base16-theme='s 3024 because of it's pure black background
-that looks stunning on my OLED screen, and also saves battery.
+#+RESULTS:
 
 #+BEGIN_SRC emacs-lisp
-  (use-package doom-themes :ensure t)
-  (load-theme 'doom-ayu-mirage t)
+  (load-theme 'kaolin-galaxy t)
 #+END_SRC
 
 #+RESULTS:
 : t
 
-I like to have the fringes of my emacs buffers to be really thin, this
-can be achieved with:
-
 #+BEGIN_SRC emacs-lisp
-  (fringe-mode -1)
+  (add-to-list 'default-frame-alist '(font . "Noto Sans Mono 10"))
+  (set-face-attribute 'default t :font "Noto Sans Mono 10")
+  (set-face-attribute 'default nil :height 100)
+#+END_SRC
+
+#+RESULTS:
+
+  I like to have the fringes of my emacs buffers to be really thin, this
+  can be achieved with:
+
+  ,#+BEGIN_SRC emacs-lisp
+    (fringe-mode -1)
 #+END_SRC
 
 * Line highlighting
@@ -80,8 +93,10 @@ relative to this, but ultimately it's your taste.
   (require 'paren)
   ;;(set-face-background 'show-paren-match "#b4b4b4")
   ;;(set-face-foreground 'show-paren-match "#000000")
-  ;;(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+  (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 #+END_SRC
+
+#+RESULTS:
 
 * Line numbering
 
@@ -106,7 +121,7 @@ Finally, I set the line numbering background colour to be the same as
 the body's, in this case it's black. 
 
 #+BEGIN_SRC emacs-lisp
-  ;;(set-face-background 'linum "#000")
+  (set-face-background 'linum "#000")
 #+END_SRC
 
 * Mode line
@@ -135,8 +150,6 @@ this.
         delete-old-versions nil  ;; 
         )
 #+END_SRC
-
-#+RESULTS:
 
 I don't like my folders cluttered with =*~= files, but I do like
 having backups with the file. My solution is to save the files in

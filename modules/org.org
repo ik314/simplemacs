@@ -2,7 +2,6 @@
 #+AUTHOR: Aqeel Akber
 
 * org-mode
-
 I would be lying if I said emacs was a good text editor out of the
 box. It's great when you configure it, sure, but why the hell would
 you bother doing that? Answer: Org mode. Look it up.
@@ -53,15 +52,33 @@ you bother doing that? Answer: Org mode. Look it up.
     )
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp
+  ;; creates indentation of text under the header for org-mode buffers.
+  (setq org-adapt-indentation t)
+#+END_SRC
+
+#+RESULTS:
+: t
+
+An optional addition... Makes the headers look a bit nicer.
+#+BEGIN_SRC emacs-lisp
+  ;; add a few things to make the org buffer a little prettier.
+  (use-package org-bullets :ensure t
+    :config
+      (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+    )
+#+END_SRC
+
 ** Encryption
 
 #+BEGIN_SRC emacs-lisp
-  (use-package org-crypt
-    :init
-    (setq epg-gpg-program "gpg2")
-    (org-crypt-use-before-save-magic)
-    (setq org-tags-exclude-from-inheritance (quote ("crypt")))
-    (setq org-crypt-key nil)
-    (setq auto-save-default nil) ;; Security flaw when using encryption
-    )
+  ;; Pretty sure this doesn't work anymore
+  ;;(use-package org-crypt
+  ;;  :init
+  ;;  (setq epg-gpg-program "gpg2")
+  ;;  (org-crypt-use-before-save-magic)
+  ;;  (setq org-tags-exclude-from-inheritance (quote ("crypt")))
+  ;;  (setq org-crypt-key nil)
+  ;;  (setq auto-save-default nil) ;; Security flaw when using encryption
+  ;;  )
 #+END_SRC
