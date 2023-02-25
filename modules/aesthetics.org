@@ -49,9 +49,9 @@ I don't need to be welcomed to emacs, just give me somewhere to type.
 : t
 
 #+BEGIN_SRC emacs-lisp
-  (add-to-list 'default-frame-alist '(font . "Noto Sans Mono 10"))
-  (set-face-attribute 'default t :font "Noto Sans Mono 10")
-  (set-face-attribute 'default nil :height 100)
+  ;;(add-to-list 'default-frame-alist '(font . "Noto Sans Mono 10"))
+  ;;(set-face-attribute 'default t :font "Noto Sans Mono 10")
+  ;;(set-face-attribute 'default nil :height 100)
 #+END_SRC
 
 #+RESULTS:
