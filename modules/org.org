@@ -69,6 +69,10 @@ An optional addition... Makes the headers look a bit nicer.
     )
 #+END_SRC
 
+#+BEGIN_SRC emacs-lisp
+  (org-defkey org-mode-map (kbd "S-<tab>") 'ct/org-shifttab)
+#+END_SRC
+
 ** Encryption
 
 #+BEGIN_SRC emacs-lisp

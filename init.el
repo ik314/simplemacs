@@ -68,6 +68,10 @@
 		      "~/.emacs.d/modules/activities/programming.org"
 		      user-emacs-directory))
 
+(load-file (expand-file-name
+	    "~/.emacs.d/modules/activities/org-books.el"
+	    user-emacs-directory))
+(org-books)
 ;;; init.el ends here
 
 (custom-set-variables
