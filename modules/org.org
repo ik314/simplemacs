@@ -57,9 +57,6 @@ you bother doing that? Answer: Org mode. Look it up.
   (setq org-adapt-indentation t)
 #+END_SRC
 
-#+RESULTS:
-: t
-
 An optional addition... Makes the headers look a bit nicer.
 #+BEGIN_SRC emacs-lisp
   ;; add a few things to make the org buffer a little prettier.
@@ -73,16 +70,27 @@ An optional addition... Makes the headers look a bit nicer.
   (org-defkey org-mode-map (kbd "S-<tab>") 'ct/org-shifttab)
 #+END_SRC
 
-** Encryption
+** Direct sub-tree collapsing
+   #+BEGIN_SRC emacs-lisp
+     (defun my-org-cycle-only-current-subtree ()
+       "Cycle the current subtree without cycling the entire buffer."
+       (interactive)
+       (save-restriction
+	 (org-narrow-to-subtree)
+	 (org-cycle)))
 
-#+BEGIN_SRC emacs-lisp
-  ;; Pretty sure this doesn't work anymore
-  ;;(use-package org-crypt
-  ;;  :init
-  ;;  (setq epg-gpg-program "gpg2")
-  ;;  (org-crypt-use-before-save-magic)
-  ;;  (setq org-tags-exclude-from-inheritance (quote ("crypt")))
-  ;;  (setq org-crypt-key nil)
-  ;;  (setq auto-save-default nil) ;; Security flaw when using encryption
-  ;;  )
-#+END_SRC
+     (defun my-org-tab-hook ()
+       "My org tab hook, to cycle only the current subtree."
+       (when (and (org-at-heading-p) (not (use-region-p)))
+	 (my-org-cycle-only-current-subtree)))
+
+     (add-hook 'org-tab-first-hook 'my-org-tab-hook)
+
+     (define-key evil-normal-state-map (kbd "TAB") 'my-org-tab-hook)
+   #+END_SRC
+
+** Org-Roam - Knowledge Basis.
+   I am struggling to get org-books to function in a way that I like,
+   so I am going to hop back onto the org-roam workflow
+
+
